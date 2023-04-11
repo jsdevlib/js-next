@@ -4,7 +4,6 @@ import { EmotionCache } from "@emotion/react";
 
 import PageProvider from "./PageProvider";
 import { Header } from "@/components/layout";
-import { useTheme } from "next-themes";
 
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
@@ -12,12 +11,10 @@ interface MyAppProps extends AppProps {
 
 const MyApp: FC<MyAppProps> = ({ Component, pageProps, emotionCache }) => {
   return (
-    <>
-      <PageProvider emotionCache={emotionCache}>
-        <Header />
-        <Component {...pageProps} />
-      </PageProvider>
-    </>
+    <PageProvider emotionCache={emotionCache}>
+      <Header />
+      <Component {...pageProps} />
+    </PageProvider>
   );
 };
 
